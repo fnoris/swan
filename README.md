@@ -25,7 +25,7 @@ swaymsg -t get_tree | grep app_id
 As values use character codes, text or whatever you want to use as workspace name for the selected app. I use character code from https://fontawesome.com/icons
 
 
-**How to use*
+**How to use**
 
 Copy swan.py in a folder (e.g.: ~/.config/sway/scripts) and add the following line to your sway config:
 
