@@ -1,4 +1,4 @@
-# SWAN (Sway Workspace Auto Name)
+# SWAN (Sway Workspace AutoNamer)
 
 > SWAN uses the python i3ipc module to dynamically rename workspaces using FontAwesome icons or customized text to visually identify open applications.
 

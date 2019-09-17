@@ -1,0 +1,49 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+APP_ICONS	swan.py	/^APP_ICONS = {$/;"	v
+Connection	swan.py	/^from i3ipc import Connection$/;"	i
+FA_BOOK	swan.py	/^FA_BOOK = '\\uf02d'$/;"	v
+FA_BTC	swan.py	/^FA_BTC = '\\uf15a'$/;"	v
+FA_CHROME	swan.py	/^FA_CHROME = '\\uf268'$/;"	v
+FA_CODE	swan.py	/^FA_CODE = '\\uf121'$/;"	v
+FA_COGS	swan.py	/^FA_COGS = '\\uf085'$/;"	v
+FA_COMMENT_O	swan.py	/^FA_COMMENT_O = '\\uf0e5'$/;"	v
+FA_DEFAULT	swan.py	/^FA_DEFAULT = '\\uf059'$/;"	v
+FA_DESKTOP	swan.py	/^FA_DESKTOP = '\\uf108'$/;"	v
+FA_DOWNLOAD	swan.py	/^FA_DOWNLOAD = '\\uf019'$/;"	v
+FA_EYE	swan.py	/^FA_EYE = '\\uf06e'$/;"	v
+FA_FILE_EXCEL_O	swan.py	/^FA_FILE_EXCEL_O = '\\uf1c3'$/;"	v
+FA_FILE_PDF_O	swan.py	/^FA_FILE_PDF_O = '\\uf1c1'$/;"	v
+FA_FILE_POWERPOINT_O	swan.py	/^FA_FILE_POWERPOINT_O = '\\uf1c4'$/;"	v
+FA_FILE_TEXT_O	swan.py	/^FA_FILE_TEXT_O = '\\uf15c'$/;"	v
+FA_FILE_WORD_O	swan.py	/^FA_FILE_WORD_O = '\\uf1c2'$/;"	v
+FA_FIREFOX	swan.py	/^FA_FIREFOX = '\\uf269'$/;"	v
+FA_FLOPPY	swan.py	/^FA_FLOPPY = '\\uf0c7'$/;"	v
+FA_FOLDER	swan.py	/^FA_FOLDER = '\\uf07b'$/;"	v
+FA_GLOBE	swan.py	/^FA_GLOBE = '\\uf0ac'$/;"	v
+FA_KEY	swan.py	/^FA_KEY = '\\uf084'$/;"	v
+FA_LINUX	swan.py	/^FA_LINUX = '\\uf1d6'$/;"	v
+FA_LOCK	swan.py	/^FA_LOCK = '\\uf023'$/;"	v
+FA_MUSIC	swan.py	/^FA_MUSIC = '\\uf001'$/;"	v
+FA_PAINT_BRUSH	swan.py	/^FA_PAINT_BRUSH = '\\uf1fc'$/;"	v
+FA_PICTURE_O	swan.py	/^FA_PICTURE_O = '\\uf03e'$/;"	v
+FA_PRODUCT_HUNT	swan.py	/^FA_PRODUCT_HUNT = '\\uf288'$/;"	v
+FA_REBEL	swan.py	/^FA_REBEL = '\\uf1d0'$/;"	v
+FA_SEARCH	swan.py	/^FA_SEARCH = '\\uf002'$/;"	v
+FA_TASKS	swan.py	/^FA_TASKS = '\\uf0ae'$/;"	v
+FA_TERMINAL	swan.py	/^FA_TERMINAL = '\\uf120'$/;"	v
+FA_USER_SECRET	swan.py	/^FA_USER_SECRET = '\\uf21b'$/;"	v
+FA_VNC	swan.py	/^FA_VNC = '\\uf26c'$/;"	v
+FA_WINDOWS	swan.py	/^FA_WINDOWS = '\\uf17a'$/;"	v
+FA_YOUTUBE_PLAY	swan.py	/^FA_YOUTUBE_PLAY = '\\uf16a'$/;"	v
+change_ws_names	swan.py	/^def change_ws_names(sway, e):$/;"	f
+main	swan.py	/^def main():$/;"	f
+signal	swan.py	/^import signal$/;"	i
+signal_handler	swan.py	/^def signal_handler(signal, frame):$/;"	f
+sway	swan.py	/^sway = Connection()$/;"	v
+sys	swan.py	/^import sys$/;"	i
+window_event_handler	swan.py	/^    def window_event_handler(sway, e):$/;"	f	function:main
