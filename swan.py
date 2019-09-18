@@ -57,7 +57,8 @@ FA_GLOBE = '\uf0ac'
 FA_FLOPPY = '\uf0c7'
 
 # Default icon/text for unknown apps
-DEFAULT_VALUE = '\uf059'
+DEFAULT_ICON = '\uf059'
+EMPTY_WS = ''
 
 APP_ICONS = {
     'urxvt256c': FA_TERMINAL,
@@ -123,12 +124,12 @@ def change_ws_names(sway, e):
             # Check for open window(s) in ws_index workspace
             if workspace.leaves():
                 for w in workspace.leaves():
-                    win_name += APP_ICONS.get(w.app_id, DEFAULT_VALUE) + ' '
+                    win_name += APP_ICONS.get(w.app_id, DEFAULT_ICON) + ' '
                 ws_new_name = "%s: %s" % (workspace.num, win_name)
                 sway.command('rename workspace "%s" to %s' % (ws_old_name, ws_new_name))
             # No open window(s), name empty workspace
             else:
-                ws_new_name = "%s: " % (workspace.num)
+                ws_new_name = "%s: %s" % (workspace.num, EMPTY_WS)
                 sway.command('rename workspace "%s" to %s' % (ws_old_name, ws_new_name))
     except Exception as ex:
         # print("Exception: ", ex)
