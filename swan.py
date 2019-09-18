@@ -72,6 +72,7 @@ APP_ICONS = {
     'firefox': FA_FIREFOX,
     'firefox developer edition': FA_FIREFOX,
     'tor browser': FA_REBEL,
+    'libreoffice-startcenter': FA_FILE_TEXT_O,
     'libreoffice': FA_FILE_TEXT_O,
     'libreoffice-writer': FA_FILE_WORD_O,
     'libreoffice-calc': FA_FILE_EXCEL_O,
