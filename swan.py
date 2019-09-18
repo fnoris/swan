@@ -6,8 +6,8 @@ This script uses the i3ipc python library to create dynamic workspace names in
 Sway.
 
 Author: Fabio Noris
-e-mail: git@norisfabio.com
-Project: https://github.com/fnoris/swan.git
+e-mail: info@norisfabio.com
+Project: https://github.com/fnoris/swan
 License: GPL3
 
 Dependencies: python-i3ipc>=2.0.1 (i3ipc-python)
@@ -22,7 +22,6 @@ import sys
 # Keys are app_id variables from the output of "swaymsg -t get_tree",
 # values are character codes or text you want to display.
 # (font awesome: http://fortawesome.github.io/Font-Awesome/icons/
-FA_DEFAULT = '\uf059'
 FA_BOOK = '\uf02d'
 FA_CHROME = '\uf268'
 FA_CODE = '\uf121'
@@ -57,8 +56,10 @@ FA_BTC = '\uf15a'
 FA_GLOBE = '\uf0ac'
 FA_FLOPPY = '\uf0c7'
 
+# Default icon/text for unknown apps
+DEFAULT_VALUE = '\uf059'
+
 APP_ICONS = {
-    'default_value': FA_DEFAULT,
     'urxvt256c': FA_TERMINAL,
     'urxvt256cc': FA_TERMINAL,
     'gnome-terminal-server': FA_TERMINAL,
@@ -121,7 +122,7 @@ def change_ws_names(sway, e):
             # Check for open window(s) in ws_index workspace
             if workspace.leaves():
                 for w in workspace.leaves():
-                    win_name += APP_ICONS.get(w.app_id, 'default_value') + ' '
+                    win_name += APP_ICONS.get(w.app_id, DEFAULT_VALUE) + ' '
                 ws_new_name = "%s: %s" % (workspace.num, win_name)
                 sway.command('rename workspace "%s" to %s' % (ws_old_name, ws_new_name))
             # No open window(s), name empty workspace
