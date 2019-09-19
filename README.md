@@ -8,6 +8,7 @@
 - Dynamically rename workspace
 - Empty workspace support
 - Move workspace support
+- Both Wayland and XWayland apps support
 - Customizable icons or text
 - Graceful exit
 
