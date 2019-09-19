@@ -31,6 +31,7 @@ FA_FILE_WORD_O = '\uf1c2'
 FA_FILE_EXCEL_O = '\uf1c3'
 FA_FILE_POWERPOINT_O = '\uf1c4'
 FA_FOLDER = '\uf07b'
+FA_FONT = '\uf031'
 FA_FIREFOX = '\uf269'
 FA_LOCK = '\uf023'
 FA_USER_SECRET = '\uf21b'
@@ -66,13 +67,14 @@ APP_ICONS = {
     'gnome-terminal-server': FA_TERMINAL,
     'kitty': FA_TERMINAL,
     'Alacritty': FA_TERMINAL,
-    'google-chrome': FA_CHROME,
-    'chromium-browser': FA_CHROME,
+    'Google-chrome': FA_CHROME,
+    'Chromium-browser': FA_CHROME,
+    'Chromium-vaapi': FA_CHROME,
     'subl': FA_CODE,
     'subl3': FA_CODE,
     'firefox': FA_FIREFOX,
     'firefox developer edition': FA_FIREFOX,
-    'tor browser': FA_REBEL,
+    'Tor Browser': FA_REBEL,
     'libreoffice-startcenter': FA_FILE_TEXT_O,
     'libreoffice': FA_FILE_TEXT_O,
     'libreoffice-writer': FA_FILE_WORD_O,
@@ -83,7 +85,7 @@ APP_ICONS = {
     'nitrogen': FA_PICTURE_O,
     'mupdf': FA_FILE_PDF_O,
     'evince': FA_FILE_PDF_O,
-    'nautilus': FA_FOLDER,
+    'org.gnome.Nautilus': FA_FOLDER,
     'transmission-gtk': FA_DOWNLOAD,
     'vlc': FA_YOUTUBE_PLAY,
     'mpv': FA_YOUTUBE_PLAY,
@@ -95,9 +97,12 @@ APP_ICONS = {
     'pyhoca-gui': FA_DESKTOP,
     'wireshark': FA_EYE,
     'seahorse': FA_KEY,
-    'gimp-2.8': FA_PAINT_BRUSH,
+    'Gimp-2.8': FA_PAINT_BRUSH,
+    'Gimp-2.10': FA_PAINT_BRUSH,
     'virt-manager': FA_TASKS,
     'virt-viewer': FA_WINDOWS,
+    'gnome-boxes': FA_WINDOWS,
+    'gnome-font-viewer': FA_FONT,
     'nm-connection-editor': FA_COGS,
     'crx_bikioccmkafdpakkkcpdbppfkghcmihk': FA_COMMENT_O,
     'electrum': FA_BTC,
@@ -124,7 +129,12 @@ def change_ws_names(sway, e):
             # Check for open window(s) in ws_index workspace
             if workspace.leaves():
                 for w in workspace.leaves():
-                    win_name += APP_ICONS.get(w.app_id, DEFAULT_ICON) + ' '
+                    # wayland native app
+                    if w.app_id:
+                        win_name += APP_ICONS.get(w.app_id, DEFAULT_ICON) + ' '
+                    # xwayland app
+                    elif w.window_class:
+                        win_name += APP_ICONS.get(w.window_class, DEFAULT_ICON) + ' '
                 ws_new_name = "%s: %s" % (workspace.num, win_name)
                 sway.command('rename workspace "%s" to %s' % (ws_old_name, ws_new_name))
             # No open window(s), name empty workspace
