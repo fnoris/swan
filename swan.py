@@ -19,7 +19,8 @@ import sys
 
 
 # Icons for common programs. Add or edit your custom variables here.
-# Keys are app_id variables from the output of "swaymsg -t get_tree",
+# Keys are app_id variables (Wayland app) or class (XWayland)
+# from the output of 'swaymsg -t get_tree | grep "app_id\|class"',
 # values are character codes or text you want to display.
 # (font awesome: http://fortawesome.github.io/Font-Awesome/icons/
 FA_BOOK = '\uf02d'

@@ -17,10 +17,10 @@
 
 Open swan.py and add/edit the dictionary "APP_ICONS" containing app_id and related icons/text.
 
-As keys use the app_id value you can get by running the following command:
+As keys use the app_id value (Wayland apps) or class (XWayland apps) you can get by running the following command:
 
 ```bash
-swaymsg -t get_tree | grep app_id
+swaymsg -t get_tree | grep "app_id\|class"
 ```
 
 As values use character codes, text or whatever you want to use as workspace name for the selected app. I use character codes from https://fontawesome.com/icons
