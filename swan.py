@@ -38,6 +38,7 @@ FA_LOCK = '\uf023'
 FA_USER_SECRET = '\uf21b'
 FA_MUSIC = '\uf001'
 FA_PAINT_BRUSH = '\uf1fc'
+FA_PENCIL = '\uf303'
 FA_PICTURE_O = '\uf03e'
 FA_VNC = '\uf26c'
 FA_TERMINAL = '\uf120'
@@ -114,6 +115,8 @@ APP_ICONS = {
     'com-sonicwall-netextender': FA_LOCK,
     'packettracer7': FA_PRODUCT_HUNT,
     'filezilla': FA_FLOPPY,
+    'com-install4j-runtime-launcher-UnixLauncher': FA_USER_SECRET,
+    'krita': FA_PENCIL,
 }
 
 
