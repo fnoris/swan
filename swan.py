@@ -68,15 +68,17 @@ APP_ICONS = {
     'urxvt256cc': FA_TERMINAL,
     'gnome-terminal-server': FA_TERMINAL,
     'kitty': FA_TERMINAL,
-    'Alacritty': FA_TERMINAL,
-    'Google-chrome': FA_CHROME,
-    'Chromium-browser': FA_CHROME,
-    'Chromium-vaapi': FA_CHROME,
+    'alacritty': FA_TERMINAL,
+    'xterm': FA_TERMINAL,
+    'st-256color': FA_TERMINAL,
+    'google-chrome': FA_CHROME,
+    'chromium-browser': FA_CHROME,
+    'chromium-freeworld': FA_CHROME,
     'subl': FA_CODE,
     'subl3': FA_CODE,
     'firefox': FA_FIREFOX,
     'firefox developer edition': FA_FIREFOX,
-    'Tor Browser': FA_REBEL,
+    'tor browser': FA_REBEL,
     'libreoffice-startcenter': FA_FILE_TEXT_O,
     'libreoffice': FA_FILE_TEXT_O,
     'libreoffice-writer': FA_FILE_WORD_O,
@@ -99,8 +101,8 @@ APP_ICONS = {
     'pyhoca-gui': FA_DESKTOP,
     'wireshark': FA_EYE,
     'seahorse': FA_KEY,
-    'Gimp-2.8': FA_PAINT_BRUSH,
-    'Gimp-2.10': FA_PAINT_BRUSH,
+    'gimp-2.8': FA_PAINT_BRUSH,
+    'gimp-2.10': FA_PAINT_BRUSH,
     'virt-manager': FA_TASKS,
     'virt-viewer': FA_WINDOWS,
     'gnome-boxes': FA_WINDOWS,
@@ -109,7 +111,6 @@ APP_ICONS = {
     'crx_bikioccmkafdpakkkcpdbppfkghcmihk': FA_COMMENT_O,
     'electrum': FA_BTC,
     'qutebrowser': FA_GLOBE,
-    'TeamViewer': FA_DESKTOP,
     'teamviewer': FA_DESKTOP,
     'uzbl-core': FA_GLOBE,
     'com-sonicwall-netextender': FA_LOCK,
@@ -121,13 +122,13 @@ APP_ICONS = {
 
 
 # Create Connection object used to send commands and subscribe to events
-sway = Connection()
+wm = Connection()
 
 
-def change_ws_names(sway, e):
+def change_ws_names(wm, e):
     # This function (re)names workspaces after open window(s), if any
     try:
-        for ws_index, workspace in enumerate(sway.get_tree().workspaces()):
+        for ws_index, workspace in enumerate(wm.get_tree().workspaces()):
             ws_old_name = workspace.name
             win_name = ''
             # Check for open window(s) in ws_index workspace
@@ -135,16 +136,16 @@ def change_ws_names(sway, e):
                 for w in workspace.leaves():
                     # wayland native app
                     if w.app_id:
-                        win_name += APP_ICONS.get(w.app_id, DEFAULT_ICON) + ' '
+                        win_name += APP_ICONS.get(str.lower(w.app_id), DEFAULT_ICON) + ' '
                     # xwayland app
                     elif w.window_class:
-                        win_name += APP_ICONS.get(w.window_class, DEFAULT_ICON) + ' '
+                        win_name += APP_ICONS.get(str.lower(w.window_class), DEFAULT_ICON) + ' '
                 ws_new_name = "%s: %s" % (workspace.num, win_name)
-                sway.command('rename workspace "%s" to %s' % (ws_old_name, ws_new_name))
+                wm.command('rename workspace "%s" to %s' % (ws_old_name, ws_new_name))
             # No open window(s), name empty workspace
             else:
                 ws_new_name = "%s: %s" % (workspace.num, EMPTY_WS)
-                sway.command('rename workspace "%s" to %s' % (ws_old_name, ws_new_name))
+                wm.command('rename workspace "%s" to %s' % (ws_old_name, ws_new_name))
     except Exception as ex:
         # print("Exception: ", ex)
         exit(ex)
@@ -152,10 +153,10 @@ def change_ws_names(sway, e):
 
 def signal_handler(signal, frame):
     # Exit gracefully when swan is terminated
-    for workspace in sway.get_tree().workspaces():
+    for workspace in wm.get_tree().workspaces():
         # rename workspaces to just numbers on exit
-        sway.command('rename workspace "%s" to "%d"' % (workspace.name, workspace.num))
-    sway.main_quit()
+        wm.command('rename workspace "%s" to "%d"' % (workspace.name, workspace.num))
+    wm.main_quit()
     sys.exit(0)
 
 
@@ -165,13 +166,14 @@ def main():
     signal.signal(signal.SIGTERM, signal_handler)
 
     # Call change_ws_names() for subscribed window and workspace events
-    def window_event_handler(sway, e):
-        if e.change in ['new', 'close', 'move', 'focus']:
-            change_ws_names(sway, e)
+    def window_event_handler(wm, e):
+        if e.change in ['new', 'close', 'move']:
+            change_ws_names(wm, e)
 
-    sway.on('window', window_event_handler)
-    sway.on('workspace', window_event_handler)
-    sway.main()
+    wm.on('window', window_event_handler)
+    ## this causes problem on i3 - test on sway
+    #wm.on('workspace', window_event_handler)
+    wm.main()
 
 
 if __name__ == "__main__":
