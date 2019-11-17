@@ -94,6 +94,7 @@ APP_ICONS = {
     'vlc': FA_YOUTUBE_PLAY,
     'mpv': FA_YOUTUBE_PLAY,
     'calibre-gui': FA_BOOK,
+    'calibre': FA_BOOK,
     'org.remmina.remmina': FA_DESKTOP,
     'x2goclient': FA_DESKTOP,
     'x2goagent': FA_DESKTOP,
