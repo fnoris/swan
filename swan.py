@@ -58,6 +58,7 @@ FA_LINUX = '\uf1d6'
 FA_BTC = '\uf15a'
 FA_GLOBE = '\uf0ac'
 FA_FLOPPY = '\uf0c7'
+FA_SKYPE = '\uf17e'
 
 # Default icon/text for unknown apps
 DEFAULT_ICON = '\uf059'
@@ -84,6 +85,8 @@ APP_ICONS = {
     'libreoffice-writer': FA_FILE_WORD_O,
     'libreoffice-calc': FA_FILE_EXCEL_O,
     'libreoffice-impress': FA_FILE_POWERPOINT_O,
+    'jetbrains-idea-ce': FA_CODE,
+    'code': FA_CODE,
     'feh': FA_PICTURE_O,
     'sxiv': FA_PICTURE_O,
     'nitrogen': FA_PICTURE_O,
@@ -98,6 +101,7 @@ APP_ICONS = {
     'org.remmina.remmina': FA_DESKTOP,
     'x2goclient': FA_DESKTOP,
     'x2goagent': FA_DESKTOP,
+    'skype': FA_SKYPE,
     'nxagent': FA_DESKTOP,
     'pyhoca-gui': FA_DESKTOP,
     'wireshark': FA_EYE,
