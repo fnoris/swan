@@ -10,20 +10,33 @@
 - Move workspace support
 - Both Wayland and XWayland apps support
 - Customizable icons or text
+- Config file
 - Graceful exit
 
 
 **Configuration**
 
-Open swan.py and add/edit the dictionary "APP_ICONS" containing app_id and related icons/text.
+Swan loads its configuration from $HOME/.config/swan.conf. If the file doesn't exist, a default configuration file is created at first run.
 
-As keys use the app_id value (Wayland apps) or class (XWayland apps) you can get by running the following command:
+The configuration file consists of sections each led by a [section] header, followed by key/value entries (similar to what's found in Microsoft Windows INI files).
+
+There are three section supported:
+
+```
+[DEFAULT] contains default configurations, like predefined icon, debug mode, etc.
+[icons] contains the actual icons to use
+[applications] contains a list of application names and icons to use
+```
+
+Application name is the value of 'app_id' (Wayland apps) or 'class' (XWayland apps) you can get by running the following command:
 
 ```bash
 swaymsg -t get_tree | grep "app_id\|class"
-```
 
-As values use character codes, text or whatever you want to use as workspace name for the selected app. I use character codes from https://fontawesome.com/icons
+or
+
+xprop
+```
 
 
 **How to use**
