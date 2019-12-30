@@ -47,7 +47,7 @@ Copy swan.py in a folder (e.g.: ~/.config/sway/scripts) and add the following li
 exec "$HOME/.config/sway/scripts/swan.py
 ```
 
-It's allowed to put icon/text directly as value of application variables, I suggest to use interpolation instead. The syntax is ${SECTION:VARIABLE}, e.g.:
+It's ok to put icon/text directly as value of application variables, I suggest using variable interpolation instead. To use interpolation, the supported syntax is ${SECTION:VARIABLE}, e.g.:
 ```
 [icons]
 APP_ICON = 
